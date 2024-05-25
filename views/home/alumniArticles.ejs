@@ -1,64 +1,178 @@
-<div class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Articles with Skeleton Loaders</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .skeleton {
+      opacity: .7;
+      animation: skeleton-loading 1s linear infinite alternate;
+    }
+
+    .skeleton-text {
+      width: 100%;
+      height: .5rem;
+      margin-bottom: .25rem;
+      border-radius: .125rem;
+    }
+
+    .skeleton-text:last-child {
+      margin-bottom: 0;
+      width: 80%;
+    }
+
+    @keyframes skeleton-loading {
+      0% {
+        background-color: hsl(200, 20%, 70%);
+      }
+
+      100% {
+        background-color: hsl(200, 20%, 95%);
+      }
+    }
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 75%; /* Maintain aspect ratio */
+      background-color: #f0f0f0;
+    }
+
+    .img-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: none; /* Hide images initially */
+    }
+
+    .img-container .skeleton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .text-container .skeleton-text {
+      width: 100%;
+      height: 1rem;
+      margin-bottom: .5rem;
+      border-radius: .25rem;
+    }
+
+    .text-container .skeleton-text:last-child {
+      width: 80%;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Gallery -->
+  <div class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
     <div class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0">
-        <section class="bg-white dark:bg-white">
-            <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
-                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Alumni Articles</h1>
-                <p class="mb-8 text-lg font-normal text-black lg:text-xl sm:px-16 xl:px-48 dark:text-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                    <div class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 bg-white dark:bg-gray-800">
-                        <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
-                            <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Very easy this was to integrate</h3>
-                                <p class="my-4">If you care for your time, I hands down would go with this."</p>
-                            </blockquote>
-                            <figcaption class="flex items-center justify-center ">
-                                <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture">
-                                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                                    <div>Bonnie Green</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400 ">Developer at Open AI</div>
-                                </div>
-                            </figcaption>    
-                        </figure>
-                        <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
-                            <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Solid foundation for any project</h3>
-                                <p class="my-4">Designing with Figma components that can be easily translated to the utility classes of Tailwind CSS is a huge timesaver!"</p>
-                            </blockquote>
-                            <figcaption class="flex items-center justify-center ">
-                                <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture">
-                                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                                    <div>Roberta Casas</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div>
-                                </div>
-                            </figcaption>    
-                        </figure>
-                        <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e dark:bg-gray-800 dark:border-gray-700">
-                            <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Mindblowing workflow</h3>
-                                <p class="my-4">Aesthetically, the well designed components are beautiful and will undoubtedly level up your next application."</p>
-                            </blockquote>
-                            <figcaption class="flex items-center justify-center ">
-                                <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture">
-                                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                                    <div>Jese Leos</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div>
-                                </div>
-                            </figcaption>    
-                        </figure>
-                        <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
-                            <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Efficient Collaborating</h3>
-                                <p class="my-4">You have many examples that can be used to create a fast prototype for your team."</p>
-                            </blockquote>
-                            <figcaption class="flex items-center justify-center ">
-                                <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture">
-                                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3">
-                                    <div>Joseph McFall</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">CTO at Google</div>
-                                </div>
-                            </figcaption>    
-                        </figure>
-                    </div>
-            </div>
-        </section>
+      <section class="bg-white dark:bg-white">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Alumni Articles</h1>
+          <p class="mb-8 text-lg font-normal text-black lg:text-xl sm:px-16 xl:px-48 dark:text-black">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+          <div class="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 bg-white dark:bg-gray-800">
+            <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-ss-lg md:border-e dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400 text-container">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </blockquote>
+              <figcaption class="flex items-center justify-center ">
+                <div class="img-container">
+                  <div class="skeleton"></div>
+                  <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png" alt="profile picture">
+                </div>
+                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3 text-container">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </figcaption>    
+            </figure>
+            <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400 text-container">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </blockquote>
+              <figcaption class="flex items-center justify-center ">
+                <div class="img-container">
+                  <div class="skeleton"></div>
+                  <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png" alt="profile picture">
+                </div>
+                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3 text-container">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </figcaption>    
+            </figure>
+            <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 md:rounded-es-lg md:border-b-0 md:border-e dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400 text-container">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </blockquote>
+              <figcaption class="flex items-center justify-center ">
+                <div class="img-container">
+                  <div class="skeleton"></div>
+                  <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png" alt="profile picture">
+                </div>
+                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3 text-container">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </figcaption>    
+            </figure>
+            <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-se-lg dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400 text-container">
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text"></div>
+              </blockquote>
+              <figcaption class="flex items-center justify-center ">
+                <div class="img-container">
+                  <div class="skeleton"></div>
+                  <img class="rounded-full w-9 h-9" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png" alt="profile picture">
+                </div>
+                <div class="space-y-0.5 font-medium dark:text-white text-left rtl:text-right ms-3 text-container">
+                  <div class="skeleton skeleton-text"></div>
+                  <div class="skeleton skeleton-text"></div>
+                </div>
+              </figcaption>    
+            </figure>
+          </div>
+        </div>
+      </section>
     </div>
-</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const images = document.querySelectorAll('.img-container img');
+      images.forEach(img => {
+        img.addEventListener('load', function() {
+          this.style.display = 'block';
+          this.previousElementSibling.style.display = 'none';
+        });
+      });
+
+      const texts = document.querySelectorAll('.text-container');
+      texts.forEach(container => {
+        container.querySelectorAll('.skeleton-text').forEach(skeleton => {
+          setTimeout(() => {
+            skeleton.style.display = 'none';
+            skeleton.textContent = ''; // Assuming you will populate text later
+          }, 1000); // Simulating content load after 1 second
+        });
+      });
+    });
+  </script>
+</body>
+</html>
