@@ -1,51 +1,182 @@
-<!-- Gallery-->
-<div class="delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" data-taos-offset="500">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery with Skeleton Loaders</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .skeleton {
+      opacity: .7;
+      animation: skeleton-loading 1s linear infinite alternate;
+    }
+
+    .skeleton-text {
+      width: 100%;
+      height: .5rem;
+      margin-bottom: .25rem;
+      border-radius: .125rem;
+    }
+
+    .skeleton-text:last-child {
+      margin-bottom: 0;
+      width: 80%;
+    }
+
+    @keyframes skeleton-loading {
+      0% {
+        background-color: hsl(200, 20%, 70%);
+      }
+
+      100% {
+        background-color: hsl(200, 20%, 95%);
+      }
+    }
+    
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: 1rem;
+    }
+
+    .card {
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+      padding: 16px;
+      border-radius: 4px;
+    }
+
+    .header {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 100%;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 1.25rem;
+      text-transform: capitalize;
+      word-wrap: none;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .img-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 75%; /* Maintain aspect ratio */
+      background-color: #f0f0f0;
+    }
+
+    .img-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      display: none; /* Hide images initially */
+    }
+
+    .img-container .skeleton {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Gallery -->
+  <div class="delay-[300ms] duration-[600ms] taos:translate-y-[-200px] taos:opacity-0" data-taos-offset="500">
     <div class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g1.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g2.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g3.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g14.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g5.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g6.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g4.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="./media/gallery/g11.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="./media/gallery/g12.jpg" alt="">
-                </div>
-            </div>
-            <div class="grid gap-4">
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="./media/gallery/g16.png" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="./media/gallery/g13.jpg" alt="">
-                </div>
-                <div>
-                    <img class="h-auto max-w-full rounded-lg" src="./media/gallery/g8.jpg" alt="">
-                </div>
-            </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid gap-4">
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g1.jpg" alt="Image 1">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g2.jpg" alt="Image 2">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g3.jpg" alt="Image 3">
+          </div>
         </div>
+        <div class="grid gap-4">
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g14.jpg" alt="Image 4">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g5.jpg" alt="Image 5">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g6.jpg" alt="Image 6">
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g4.jpg" alt="Image 7">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g11.jpg" alt="Image 8">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g12.jpg" alt="Image 9">
+          </div>
+        </div>
+        <div class="grid gap-4">
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g16.png" alt="Image 10">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g13.jpg" alt="Image 11">
+          </div>
+          <div class="img-container">
+            <div class="skeleton"></div>
+            <img class="h-auto max-w-full rounded-lg" src="/media/gallery/g8.jpg" alt="Image 12">
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const images = document.querySelectorAll('.img-container img');
+      images.forEach(img => {
+        img.addEventListener('load', function() {
+          this.style.display = 'block';
+          this.previousElementSibling.style.display = 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
