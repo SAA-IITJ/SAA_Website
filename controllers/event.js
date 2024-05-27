@@ -15,15 +15,20 @@ module.exports = {
       [CONSTANTS.EVENTS_PAGE_RENDER_INPUTS.Events]: await Events.findAll({
         attributes: {
           exclude: ["createdAt", "updatedAt"],
-        },
+          
+        },group:['eventTypeId'],
       }).then((data) => {
-
-        return data.map((ele) => {
+        data.map((ele) => {
           return {
             ...ele,
             mediaFiles: utils.getFilesArrayInAFolder(ele.mediaDirectory),
           };
         })
+        const groupedEventsMap = {};
+        data.forEach(event => {
+          groupedEventsMap[event.eventType] = event.get({ plain: true });
+        })
+        return groupedEventsMap
         
       }),
     });
