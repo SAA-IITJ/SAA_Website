@@ -66,11 +66,23 @@
           </div>
         </div>
 
+        <div class="container mx-auto p-8">
         <!-- Displaying coordinators -->
         <div
           class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
-          <% TeamMembers.filter(member => member.position !== 'Overall Coordinators' && member.position !== 'Vice President' && member.position !== 'President').forEach(function(member) { %>
+          <% TeamMembers.filter(member => member.position !== 'Overall Coordinators' && member.position !== 'Vice President' && member.position !== 'President' && member.position !== 'Team Members').forEach(function(member) { %>
+          <%-include('./team/teamCard', {...member}) %> 
+          <% }) %>
+        </div>
+
+        </div>
+        <!-- Displaying core members -->
+        <div class="container mx-auto p-8">
+        <div
+          class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
+          <% TeamMembers.filter(member => member.position !== 'Coordinators' && member.position !== 'Overall Coordinators' && member.position !== 'Vice President' && member.position !== 'President').forEach(function(member) { %>
           <%-include('./team/teamCard', {...member}) %> 
           <% }) %>
         </div>

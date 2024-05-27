@@ -1,4 +1,35 @@
 <!-- Distinguished Alumni -->
+
+<style>
+      
+    @keyframes marquee {
+0% {
+transform: translateX(0%);
+}
+100% {
+transform: translateX(-100%);
+}
+}
+
+@keyframes marquee2 {
+0% {
+transform: translateX(100%);
+}
+100% {
+transform: translateX(0%);
+}
+}
+
+.marquee-animation {
+animation: marquee 20s linear infinite;
+}
+
+.marquee-animation2 {
+animation: marquee2 20s linear infinite;
+}
+
+</style>
+
 <div class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
     <div class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0">
         <section class="bg-white dark:bg-white">
@@ -15,6 +46,58 @@
                     <img src="/assets/home/distinguished_alumni.jpg" alt="">
                 </div>                
             </div>
+            <div id="companies-title" class="flex justify-center gap-2">
+                <img class="translate-y-2" src="/assets/left_DownArrow.svg" alt="">
+                <span class="font-semibold">OUR ALUMNI IN TOP COMPANIES WORLDWIDE</span>
+                <img class="-scale-x-100 translate-y-2" src="/assets/right_DownArrow.svg" alt="">
+            </div>
+            <div class="relative flex overflow-x-hidden mx-100"> 
+                <div class="py-12  marquee-animation whitespace-nowrap">
+                    <div class="flex flex-row gap-x-32 gap-y-2 px-10 flex-wrap justify-between">
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 1" src="/media/marqueeImages/adobe.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 2" src="/media/marqueeImages/amazon.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 3" src="/media/marqueeImages/kuku-fm.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 4" src="/media/marqueeImages/microsoft-logo.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 5" src="/media/marqueeImages/samsung.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 6" src="/media/marqueeImages/google.svg" width="200" height="100" />
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="absolute top-0 py-12 marquee-animation2 whitespace-nowrap">
+                    <div class="flex flex-row gap-x-32 gap-y-2 px-10 flex-wrap justify-between">
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 1" src="/media/marqueeImages/adobe.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 2" src="/media/marqueeImages/amazon.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 3" src="/media/marqueeImages/kuku-fm.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 4" src="/media/marqueeImages/microsoft-logo.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 5" src="/media/marqueeImages/samsung.svg" width="200" height="100" />
+                        </div>
+                        <div>
+                            <img class="h-20 w-28" alt="client logo 6" src="/media/marqueeImages/google.svg" width="200" height="100" />
+                        </div>
+                    </div>
+                </div>
+            </div>             
         </section>
     </div>
 </div>
