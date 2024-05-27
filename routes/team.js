@@ -1,6 +1,6 @@
 const teamController = require("../controllers/team");
 
 const router = require("express").Router();
-router.get(["/team"], teamController.teamView);
+router.get(["/studentTeam"], teamController.teamView);
 
 module.exports = router;
