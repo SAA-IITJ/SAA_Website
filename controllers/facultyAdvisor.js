@@ -1,4 +1,5 @@
 const CONSTANTS = require("../utils/constants");
+const { TeamMembers } = require("../models/team/Team");
 module.exports = {
   facultyAdvisorView: async (req, res, next) => {
     res.render("facultyAdvisor", {
