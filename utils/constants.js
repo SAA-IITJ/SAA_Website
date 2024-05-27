@@ -4,7 +4,14 @@ const HOME_PAGE_RENDER_INPUTS = {
 };
 const HOME_PAGE_NAVLINKS = {
   home: ["Home", "/home"],
-  team: ["Team", "/team"],
+  team: [
+    "Team", 
+    [
+      ["Student Team", "/studentTeam"],
+      ["Faculty Advisor", "/facultyAdvisor"],
+    ],
+  ],
+  
  
   activities: ["Activities", "/activities"],
   visit_IITJ: ["Visit IITJ", "/visitIITJ"],

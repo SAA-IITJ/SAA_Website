@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="/stylesheets/team.css" />
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </head>
+
+  <body class="font-[Poppins] bg-white">
+    <%- include('./common/nav')%>
+
+    <section class="bg-white dark:bg-gray-100">
+      <div
+        class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6"
+      >
+        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
+          <div
+            class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
+            data-taos-offset="300"
+          >
+            <div
+              class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0"
+            >
+
+              <!-- Displaying VP -->
+                <div class="flex items-center justify-center mt-6 mb-16">
+                    <div class="w-48 h-0.5 bg-gray-500"></div>
+                    <h2 class="text-black text-2xl font-bold mx-4">PRESIDENT</h2>
+                    <div class="w-48 h-0.5 bg-gray-500"></div>
+                </div>
+                            
+                <% const president = TeamMembers.find(member => member.position ===
+                'President'); %> <% if(president){ %>
+                <%-include('./team/teamCard',{...president}) %> <%}%>
+
+              <p
+                class="mt-16 mb-20 font-light text-gray-500 sm:text-xl dark:text-gray-800"
+              >
+                <i>" Building Bridges and Strengthening Bonds: Enhancing Alumni
+                    Collaboration Through Teamwork and Engagement "</i>
+              </p>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+    <%- include('./common/footer')%>
+  </body>
+</html>
