@@ -43,10 +43,10 @@
         <div
             class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 md:justify-end">
             <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
-                <% Object.entries(NavLinks).forEach(([key, [text, linkOrSublinks]]) => { %>
+                <% Object.entries(NavLinks).forEach(([key, [text, linkOrSublinks]],index) => { %>
                     <li>
                         <% if(Array.isArray(linkOrSublinks)){ %>
-                            <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="200" data-dropdown-trigger="hover" class="text-black bg-white hover:text-gray-500 focus:outline-none   rounded-lg   text-center inline-flex items-center dark:bg-white dark:hover:text-gray-500 " type="button">
+                            <button id="dropdownDelayButton<%= index%>" data-dropdown-toggle="dropdownDelay<%= index%>" data-dropdown-delay="200" data-dropdown-trigger="hover" class="text-black bg-white hover:text-gray-500 focus:outline-none   rounded-lg   text-center inline-flex items-center dark:bg-white dark:hover:text-gray-500 " type="button">
                                 <%= text %>
                                 <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
@@ -57,7 +57,7 @@
                         <% } %>
                    <% if (Array.isArray(linkOrSublinks)) { %>
 
-                    <div id="dropdownDelay" class="z-40 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-white">
+                    <div id="dropdownDelay<%= index%>" class="z-40 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-white">
                         <ul class="py-2 text-sm text-black dark:text-black" aria-labelledby="dropdownDelayButton">
                             <% linkOrSublinks.forEach(([subText, subLink]) => { %>
                                 <li>

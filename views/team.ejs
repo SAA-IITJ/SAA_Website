@@ -50,11 +50,22 @@
           </div>
 
           <!-- Displaying VP -->
+          <div class="flex items-center justify-center mt-6 mb-16">
+            <div class="w-48 h-0.5 bg-gray-500"></div>
+            <h2 class="text-black text-2xl font-bold mx-4">VICE PRESIDENT</h2>
+            <div class="w-48 h-0.5 bg-gray-500"></div>
+          </div>
+                    
           <% const president = TeamMembers.find(member => member.position ===
           'Vice President'); %> <% if(president){ %>
           <%-include('./team/teamCard',{...president}) %> <%}%>
         </div>
 
+        <div class="flex items-center justify-center mb-4">
+          <div class="w-20 h-0.5 bg-gray-500"></div>
+          <h2 class="text-black text-2xl font-bold mx-4">OVERALL COORDINATOR</h2>
+          <div class="w-20 h-0.5 bg-gray-500"></div>
+        </div>
         <div class="container mx-auto p-8">
           <div class="flex flex-wrap align-middle justify-center -mx-4">
             <!-- Do not move to next line. It might throw error -->
@@ -63,6 +74,12 @@
           </div>
         </div>
 
+
+        <div class="flex items-center justify-center mt-6 mb-16">
+          <div class="w-48 h-0.5 bg-gray-500"></div>
+          <h2 class="text-black text-2xl font-bold mx-4">COORDINATORS</h2>
+          <div class="w-48 h-0.5 bg-gray-500"></div>
+        </div>
         <div class="container mx-auto p-8">
         <!-- Displaying coordinators -->
         <div
@@ -72,10 +89,15 @@
           <%-include('./team/teamCard', {...member}) %> 
           <% }) %>
         </div>
-
         </div>
+
         <!-- Displaying core members -->
         <div class="container mx-auto p-8">
+          <div class="flex items-center justify-center mb-16">
+            <div class="w-48 h-0.5 bg-gray-500"></div>
+            <h2 class="text-black text-2xl font-bold mx-4">CORE MEMBERS</h2>
+            <div class="w-48 h-0.5 bg-gray-500"></div>
+          </div>
         <div
           class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
