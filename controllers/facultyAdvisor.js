@@ -1,5 +1,9 @@
 const CONSTANTS = require("../utils/constants");
 const { TeamMembers } = require("../models/team/Team");
+const {
+  getTeamPagePositionType,
+  getTeamPageTeamType,
+} = require("../utils/utils");
 module.exports = {
   facultyAdvisorView: async (req, res, next) => {
     res.render("facultyAdvisor", {
