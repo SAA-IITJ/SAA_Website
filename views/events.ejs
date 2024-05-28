@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/events.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet"
+    />
   </head>
-  <body >
+  <body>
     <%- include('./common/nav')%>
     <script src="https://cdn.tailwindcss.com"></script>
-
 
     <!-- Render event types -->
     <script
@@ -44,7 +46,9 @@
     <div class="w-full bg-white flex flex-col space-y-14 px-3">
   
         <div class="flex justify-between gap-8 items-center">
-            <h3 class="font-black text-gray-800 md:text-3xl text-xl pb-4">${event.name}</h3>
+            <h3 class="font-black text-gray-800 md:text-3xl text-xl pb-4">${
+              event.name
+            }</h3>
             <div class="flex flex-col text-gray-600 text-sm space-y-1">
             <div class="flex items-end">
                <i class="fas fa-clock text-gray-500 mr-2"></i>
@@ -58,9 +62,11 @@
         </div>
   
         <div class="w-full bg-white  flex flex-row overflow-x-scroll">
-            ${event.mediaFiles.map((ele) => {
-            return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`
-            }).join('')}
+            ${event.mediaFiles
+              .map((ele) => {
+                return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`;
+              })
+              .join("")}
         </div>
     </div>
  
@@ -99,5 +105,6 @@
       </script>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <%- include('./common/footer')%>
   </body>
 </html>
