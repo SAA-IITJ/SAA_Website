@@ -33,6 +33,7 @@ const Events = db.ORM.define(
     },
     description: { type: db.DataTypes.STRING },
     mediaDirectory: {
+      validate:true,
       type: db.DataTypes.STRING,
     },
     eventTypeId: {

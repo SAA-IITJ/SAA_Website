@@ -6,6 +6,8 @@ const utils = require("../utils/utils");
 module.exports = {
   eventsView: async (req, res, next) => {
     res.render("events", {
+      [CONSTANTS.HOME_PAGE_RENDER_INPUTS.NavLinks]:
+        CONSTANTS.HOME_PAGE_NAVLINKS,
       [CONSTANTS.EVENTS_PAGE_RENDER_INPUTS.EventTypes]:
         await EventTypes.findAll({
           attributes: {
@@ -15,21 +17,25 @@ module.exports = {
       [CONSTANTS.EVENTS_PAGE_RENDER_INPUTS.Events]: await Events.findAll({
         attributes: {
           exclude: ["createdAt", "updatedAt"],
-          
-        },group:['eventTypeId'],
-      }).then((data) => {
-        data.map((ele) => {
-          return {
-            ...ele,
-            mediaFiles: utils.getFilesArrayInAFolder(ele.mediaDirectory),
-          };
-        })
+        },
+      }).then(async (data) => {
+        console.log(data);
         const groupedEventsMap = {};
-        data.forEach(event => {
-          groupedEventsMap[event.eventType] = event.get({ plain: true });
-        })
-        return groupedEventsMap
-        
+        for (const event of data) {
+          const eventTypeObj = await EventTypes.findByPk(event.eventTypeId);
+          const eventTypeName = await eventTypeObj.getDataValue("name");
+          const mediaFiles = utils.getFilesArrayInAFolder(event.mediaDirectory);
+          if (!groupedEventsMap[eventTypeName]) {
+            groupedEventsMap[eventTypeName] = [];
+          }
+          groupedEventsMap[eventTypeName].push({
+            ...event.dataValues,
+            eventType: eventTypeName,
+            mediaFiles,
+          });
+        }
+        console.log(groupedEventsMap);
+        return groupedEventsMap;
       }),
     });
     next();

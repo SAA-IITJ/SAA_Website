@@ -11,7 +11,8 @@ const teamPageTeamTypesLength = Object.keys(
   constants.TEAM_PAGE_TEAM_TYPES
 ).length;
 
-const getTeamPagePositionType = (num) => constants.TEAM_PAGE_POSITION_TYPES[num];
+const getTeamPagePositionType = (num) =>
+  constants.TEAM_PAGE_POSITION_TYPES[num];
 
 const getTeamPageTeamType = (num) => constants.TEAM_PAGE_TEAM_TYPES[num];
 
@@ -24,7 +25,10 @@ const getFilesArrayInAFolder = (subDirPath) => {
     const files = fs.readdirSync(directoryPath);
 
     // Return full paths of the files
-    return files.map((file) => path.join(subDirPath, file));
+    
+    const result =  files.map((file) => path.join(subDirPath, file));
+    logger(result, "success")
+    return result
   } catch (error) {
     // Handle error, e.g., directory not found
     logger(
@@ -34,9 +38,6 @@ const getFilesArrayInAFolder = (subDirPath) => {
     return [];
   }
 };
-
-
-
 
 module.exports = {
   teamPagePositionTypesLength,
