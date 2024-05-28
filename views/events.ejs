@@ -34,45 +34,52 @@
 
       <script>
         // Get reference to event cards container
-        const eventCardsContainer = document.getElementById(
-          "eventCardsContainer"
-        );
+        const eventCardsContainer = document.getElementById("eventCardsContainer");
 
         // Get reference to event type list items
         const eventTypeItems = document.querySelectorAll(".eventType");
 
         function getCard(event) {
-          return `<div class="card relative flex flex-col md:flex-row  rounded-xl shadow-lg px-3 py-2 max-w-5xl mx-auto border border-white bg-white transition-colors duration-300 ease mb-5 hover:shadow-lg hover:bg-white  w-[575.5px] h-[288px]">
-    <div class="w-full bg-white flex flex-col space-y-14 px-3">
-  
-        <div class="flex justify-between gap-8 items-center">
-            <h3 class="font-black text-gray-800 md:text-3xl text-xl pb-4">${
-              event.name
-            }</h3>
-            <div class="flex flex-col text-gray-600 text-sm space-y-1">
-            <div class="flex items-end">
-               <i class="fas fa-clock text-gray-500 mr-2"></i>
-               <span>${event.startTime} - ${event.endTime}</span>
+          return `<div class="card relative flex flex-col md:flex-row rounded-xl shadow-lg px-3 py-2 max-w-5xl mx-auto border border-white bg-white transition-colors duration-300 ease mb-5 hover:shadow-lg hover:bg-white w-[575.5px]">
+            <div class="w-full bg-white flex flex-col space-y-14 px-3">
+              <div class="flex justify-between gap-8 items-center">
+                <h3 class="font-black text-gray-800 md:text-3xl text-xl pb-4">${event.name}</h3>
+                <div class="flex flex-col text-gray-600 text-sm space-y-1">
+                  <div class="flex items-end">
+                    <i class="fas fa-clock text-gray-500 mr-2"></i>
+                    <span>${event.startTime} - ${event.endTime}</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-calendar-alt text-gray-500 mr-2"></i>
+                    <span>${event.startDate} - ${event.endDate}</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+                    <span>${event.venue}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full bg-white flex flex-row overflow-x-scroll">
+                ${event.mediaFiles.map((ele) => {
+                  return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`;
+                }).join("")}
+              </div>
+              <button class="btn-view-more py-2 px-4 bg-gray-400 text-gray-800 font-bold rounded-md transition duration-300 ease-in-out hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50" onclick="toggleDescription(event, 'desc-${event.id}')">Description</button>
+              <div id="desc-${event.id}" class="hidden text-gray-700 mt-2">${event.description}</div>
             </div>
-            <div class="flex items-center">
-               <i class="fas fa-calendar-alt text-gray-500 mr-2"></i>
-               <span>${event.startDate} - ${event.endDate}</span>
-            </div>
-            </div>
-        </div>
-  
-        <div class="w-full bg-white  flex flex-row overflow-x-scroll">
-            ${event.mediaFiles
-              .map((ele) => {
-                return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`;
-              })
-              .join("")}
-        </div>
-    </div>
- 
-</div>
-      `;
+          </div>`;
         }
+
+        // Function to toggle the visibility of the description
+        function toggleDescription(event, descId) {
+          const descriptionDiv = document.getElementById(descId);
+          if (descriptionDiv.classList.contains("hidden")) {
+            descriptionDiv.classList.remove("hidden");
+          } else {
+            descriptionDiv.classList.add("hidden");
+          }
+        }
+
         // Add click event listener to each event type list item
         eventTypeItems.forEach((item) => {
           item.addEventListener("click", async () => {
