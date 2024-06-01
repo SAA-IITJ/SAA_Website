@@ -7,8 +7,8 @@ const HOME_PAGE_NAVLINKS = {
   team: [
     "Team", 
     [
-      ["Student Team", "/studentTeam"],
       ["Faculty Advisor", "/facultyAdvisor"],
+      ["Student Team", "/studentTeam"],
     ],
   ],
   
@@ -19,11 +19,10 @@ const HOME_PAGE_NAVLINKS = {
   quick_access: [
     "Quick Access",
     [
-      ["IIT Jodhpur", "/IITJodhpur"],
-      ["Alumni Portal", "/AlumniPortal"],
+      ["IIT Jodhpur", "https://www.iitj.ac.in/"],
+      ["Alumni Portal", "https://alumni.iitj.ac.in/"],
     ],
   ],
-  contact: ["Contact", "/contact"],
 };
 
 const TEAM_PAGE_RENDER_INPUTS = {
