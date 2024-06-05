@@ -12,11 +12,11 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <script>
       document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="/stylesheets/team.css" />
+    <link rel="stylesheet" href="/stylesheets/facultyAdvisor.css" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
   </head>
 
@@ -45,7 +45,7 @@
                             
                 <% const president = TeamMembers.find(member => member.position ===
                 'President'); %> <% if(president){ %>
-                <%-include('./team/teamCard',{...president}) %> <%}%>
+                <%-include('./common/profileTeamMember',{...president}) %> <%}%>
 
               <p
                 class="mt-16 mb-20 font-light text-gray-500 sm:text-xl dark:text-gray-800"

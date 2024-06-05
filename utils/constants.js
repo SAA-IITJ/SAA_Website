@@ -13,7 +13,7 @@ const HOME_PAGE_NAVLINKS = {
   ],
   
  
-  activities: ["Activities", "/activities"],
+  activities: ["Activities", "/events"],
   visit_IITJ: ["Visit IITJ", "/visitIITJ"],
   giving_back: ["Giving back", "/givingBack"],
   quick_access: [

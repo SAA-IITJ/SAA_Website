@@ -13,7 +13,7 @@ if (!fs.existsSync(outputDir)) {
 }
 
 // List of main templates (add more as needed)
-const templates = ["home", "team", "gallery", "events"];
+const templates = ["home", "team", "events","facultyAdvisor","givingBack","visitIITJ"];
 
 templates.forEach((template) => {
   const mainTemplatePath = path.join(templatesDir, `${template}.ejs`);

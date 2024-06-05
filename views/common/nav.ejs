@@ -29,6 +29,23 @@
     from { border-color: transparent }
     to { border-color: red }
   }
+
+  .nav-links-md::after{
+    content: '';
+   position: absolute;
+   width: 0%;
+   height: 2px;
+   bottom: -4px;
+   left: 0;
+   visibility: hidden;
+   transition: all 0.3s ease-in-out;
+ }
+ .nav-links-md:hover::after {
+   width: 100%;
+   visibility: visible;
+   background-color: #38a169;
+ }
+
 </style>
 <header class="bg-white">
     <nav class="flex justify-between items-center w-[92%] mx-auto py-4">
