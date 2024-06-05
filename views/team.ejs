@@ -21,6 +21,9 @@
   </head>
 
   <body class="font-[Poppins] bg-white">
+    <%- include('./common/imageLoaderScript') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
     <%- include('./common/nav')%>
 
     <section class="bg-white dark:bg-gray-100">
@@ -97,7 +100,7 @@
             <div class="w-56 h-0.5 bg-gray-500"></div>
           </div>
         <div
-          class="grid gap-8 lg:gap-16 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+          class="grid gap-8 lg:gap-16 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 last:justify-self-center"
         >
           <% TeamMembers.filter(member => member.position === 'Team Members').forEach(function(member) { %>
           <%-include('./common/profileTeamMember', {...member}) %> 
@@ -105,8 +108,7 @@
         </div>
       </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+
     <%- include('./common/footer')%>
   </body>
 </html>

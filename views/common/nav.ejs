@@ -30,25 +30,38 @@
     to { border-color: red }
   }
 
-  .nav-links-md::after{
-    content: '';
-   position: absolute;
-   width: 0%;
-   height: 2px;
-   bottom: -4px;
-   left: 0;
-   visibility: hidden;
-   transition: all 0.3s ease-in-out;
- }
- .nav-links-md:hover::after {
-   width: 100%;
-   visibility: visible;
-   background-color: #38a169;
- }
+  .nav-link {
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: black;
+    color: black;
+    padding: 3px 0px;
+    margin: 0px 3px;
+    display: inline-block;
+    position: relative;
+    opacity: 1;
+  }
 
+  .nav-link::before {
+    transition: 300ms;
+    height: 3px;
+    content: "";
+    position: absolute;
+    background-color: red;
+  }
+
+  .nav-link-ltr::before {
+    width: 0%;
+    bottom: 1px;
+  }
+
+  .nav-link-ltr:hover::before {
+    width: 100%;
+  }
+  
 </style>
 <header class="bg-white">
-    <nav class="flex justify-between items-center w-[92%] mx-auto py-4">
+    <nav class="navbar flex justify-between items-center w-[92%] mx-auto py-4">
         <div class="flex items-center">
             <img class="w-16 cursor-pointer" src="/assets/saa_logo_jpeg.jpeg" alt="...">
             <span class="title-holder">
@@ -58,10 +71,10 @@
             </span>
         </div>
         <div
-            class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 md:justify-end">
+            class="nav-link duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5 md:justify-end">
             <ul class="flex md:flex-row flex-col md:items-center md:gap-[2vw] gap-8">
                 <% Object.entries(NavLinks).forEach(([key, [text, linkOrSublinks]],index) => { %>
-                    <li>
+                    <li >
                         <% if(Array.isArray(linkOrSublinks)){ %>
                             <button id="dropdownDelayButton<%= index%>" data-dropdown-toggle="dropdownDelay<%= index%>" data-dropdown-delay="200" data-dropdown-trigger="hover" class="text-black bg-white hover:text-gray-500 focus:outline-none   rounded-lg   text-center inline-flex items-center dark:bg-white dark:hover:text-gray-500 " type="button">
                                 <%= text %>
@@ -70,7 +83,7 @@
                                 </svg>
                             </button>
                             <% }else{ %>
-                        <a class="hover:underline" href="<%= linkOrSublinks %>"> <%= text %></a>
+                        <a class="nav-link nav-link-ltr" href="<%= linkOrSublinks %>"> <%= text %></a>
                         <% } %>
                    <% if (Array.isArray(linkOrSublinks)) { %>
 

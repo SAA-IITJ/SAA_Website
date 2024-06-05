@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/events.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
-      rel="stylesheet"
-    />
+    
   </head>
   <body>
+    <%- include('./common/imageLoaderScript') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
     <%- include('./common/nav')%>
 
-   
+    
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
       <h1 class="text-center mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-black pt-10">Events</h1>
       <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-800">Stay updated on the latest gatherings, networking opportunities, and celebrations designed to connect and inspire our vibrant alumni community.</p>
@@ -118,7 +118,7 @@
         });
       </script>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
     <%- include('./common/footer')%>
   </body>
 </html>

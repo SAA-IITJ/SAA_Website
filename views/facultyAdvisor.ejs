@@ -21,6 +21,9 @@
   </head>
 
   <body class="font-[Poppins] bg-white">
+    <%- include('./common/imageLoaderScript') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
     <%- include('./common/nav')%>
 
     <section class="bg-white dark:bg-gray-100">
@@ -28,15 +31,8 @@
         class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6"
       >
         <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
-          <div
-            class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0"
-            data-taos-offset="300"
-          >
-            <div
-              class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0"
-            >
-
-              <!-- Displaying VP -->
+      
+              <!-- Displaying President -->
                 <div class="flex items-center justify-center mt-6 mb-16">
                     <div class="w-48 h-0.5 bg-gray-500"></div>
                     <h2 class="text-black text-2xl font-bold mx-4">PRESIDENT</h2>
@@ -53,15 +49,12 @@
                 <i>" Building Bridges and Strengthening Bonds: Enhancing Alumni
                     Collaboration Through Teamwork and Engagement "</i>
               </p>
-            </div>
-          </div>
           
         </div>
 
       </div>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+
     <%- include('./common/footer')%>
   </body>
 </html>

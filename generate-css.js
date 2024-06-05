@@ -45,7 +45,7 @@ templates.forEach((template) => {
     theme: {
       extend: {},
     },
-    plugins: [require("flowbite/plugin"), require("taos/plugin")],
+    plugins: [require("flowbite/plugin")],
   };
   
   `;

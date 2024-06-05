@@ -11,23 +11,30 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    
 
     <script>
       document.documentElement.classList.add("js");
     </script>
     <link rel="stylesheet" href="/stylesheets/home.css" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+    
+    
+
   </head>
 
   <body class="font-[Poppins] bg-white">
-    <%- include('./common/nav')%> <%- include('./home/carousel') %> <%-
-    include('./home/about') %> <%- include('./home/gallery') %>
+    <%- include('./common/imageLoaderScript') %>
+    <%- include('./common/nav') %> 
+    <%- include('./home/carousel') %> 
+    <%- include('./home/about') %> 
+    <%- include('./home/gallery') %>
 
     <!-- Alumni Articles -->
 
-    <%- include('./home/alumniArticles') %> <%-
-    include('./home/distinguishedAlumni') %>
+    <%- include('./home/alumniArticles') %> 
+    <%- include('./home/distinguishedAlumni') %>
 
     <!-- Alumni in News -->
     <%- include('./home/alumniInNews') %>
@@ -48,9 +55,6 @@
       const car = document.getElementById("default-carousel");
       car.style.height = window.innerHeight * 0.75 + "px";
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
   </body>
 
   <%- include('./common/footer') %>

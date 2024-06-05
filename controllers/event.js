@@ -19,7 +19,7 @@ module.exports = {
           exclude: ["createdAt", "updatedAt"],
         },
       }).then(async (data) => {
-        console.log(data);
+
         const groupedEventsMap = {};
         for (const event of data) {
           const eventTypeObj = await EventTypes.findByPk(event.eventTypeId);
@@ -34,7 +34,7 @@ module.exports = {
             mediaFiles,
           });
         }
-        console.log(groupedEventsMap);
+ 
         return groupedEventsMap;
       }),
     });
