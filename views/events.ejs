@@ -14,12 +14,8 @@
     <%- include('./common/nav')%>
 
     
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-      <h1 class="text-center mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-black pt-10">Events</h1>
-      <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-800">Stay updated on the latest gatherings, networking opportunities, and celebrations designed to connect and inspire our vibrant alumni community.</p>
-    </div>
-    <hr class="border-0 h-0.5 w-1/2 bg-black mx-auto mb-7">
 
+    
 
     <!-- Render event types -->
     <script
@@ -27,17 +23,18 @@
       crossorigin="anonymous"
     ></script>
 
-    <div class="min-h-screen bg-white flex flex-col items-center">
-      <div class="flex w-full h-full">
+    <div class="min-h-screen bg-white flex lg:flex-row max-lg:flex-row items-stretch gap-4 mx-auto max-w-screen-xl text-center px-32 py-16 ">
+     
         <%- include('./events/eventTypes', {EventTypes}) %>
         <!-- Event container for dynamic event cards -->
         <div
           id="eventCardsContainer"
-          class="w-1/2 h-full flex flex-col items-start justify-center hidden pr-20 card-container"
+          class="w-1/2 h-full flex flex-col items-start justify-center pr-20 card-container"
         >
           <!-- Event Cards will be dynamically added here -->
         </div>
-      </div>
+
+    </div>
 
       <script>
         // Get reference to event cards container
@@ -117,8 +114,18 @@
           });
         });
       </script>
-    </div>
 
+      <div class="absolute top-0 left-0 w-1/2 bg-green-300">
+
+      </div>
+ 
+      <div class="absolute top-0 left-0">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs d="M 10 80 L 10 10 L 80 10 Z" fill="none" stroke="black" />
+
+        </svg>
+      </div>
+    
     <%- include('./common/footer')%>
   </body>
 </html>
