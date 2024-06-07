@@ -30,27 +30,27 @@
     }
 
     .event-link {
-        padding: 3px 0px;
-        margin: 0px 3px;
+        padding: 1px 0px;
+        margin: 0px 1px;
         display: inline-block;
         position: relative;
     }
 
     .event-link::before {
         transition: width 300ms;
-        height: 3px;
+        height: 5px;
         content: "";
         position: absolute;
         background-color: black;
         left: 10%; 
         right: 30%; 
         width: 0; 
-        bottom: 0px;
+        bottom: 20px;
     }
 
     .event-link-ltr::before {
         width: 0%;
-        bottom: 0px;
+        bottom: 5px;
     }
 
     .event-link-ltr:hover::before {
@@ -61,7 +61,7 @@
 <div class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
     <div class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0">
         <div style="padding-left: 40px; padding-right: 40px;">
-            <section class="zoom mt-16 bg-white dark:bg-white" style="background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; border-radius: 20px; position: relative; overflow: hidden;">
+            <section class="zoom mt-32 bg-white dark:bg-white" style="background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); background-size: 400% 400%; animation: gradient 15s ease infinite; box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px; border-radius: 20px; position: relative; overflow: hidden;">
                 <!-- Glass effect overlay -->
                 <div class="glass-effect" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;"></div>
                 <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 relative">
