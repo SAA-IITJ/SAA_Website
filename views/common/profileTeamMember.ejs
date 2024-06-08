@@ -6,11 +6,7 @@
     class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0"
   >
     <div class="text-center text-gray-500 dark:text-gray-800">
-      <img
-        class="object-cover object-top mx-auto mb-4 w-48 h-48 rounded-full"
-        src="<%= imagePath %>"
-        alt="<%= name %>'s profile picture"
-      />
+      <%- include('./imageSkeletonLoader.ejs', {classes:"object-cover object-top mx-auto mb-4 w-48 h-48 rounded-full" , srcPath: imagePath, altPath:""}) %>
       <h3
         class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-black"
       >
