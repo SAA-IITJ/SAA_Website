@@ -1,9 +1,9 @@
-<div class="h-full flex items-start justify-start sm:pr-40 hover:transform:scale-150 transition-transform">
+<div class="h-full flex items-center justify-start  hover:transform:scale-150 transition-transform">
   <ul class="flex flex-col items-end">
     <h2 class="font-medium py-5 text-3xl">Event Categories</h2>
     <% EventTypes.forEach(eventType => { %>
     <button
-      class="mb-4 w-full px-6 py-3 text-gray-800 font-semibold rounded-lg shadow-md  hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-200 ease-in-out transform hover:scale-105 hover:border-2 hover:border-red-400 hover:bg-red-200 eventType"
+      class="mb-4 w-full px-6 py-3 text-gray-200 font-semibold rounded-lg shadow-md  hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-200 ease-in-out transform hover:scale-105 hover:border-2 border-2 border-red-200 hover:border-red-400 hover:bg-red-800 eventType backdrop-blur-sm"
       data-type="<%= eventType.name %>"
     >
       <%= eventType.name %>

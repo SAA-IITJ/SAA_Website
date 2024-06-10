@@ -6,6 +6,12 @@
     <title>Document</title>
     <link rel="stylesheet" href="/stylesheets/events.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      .mybutton{
+        border: 2px solid ;
+      }
+    </style>
   </head>
   <body>
     <%- include('./common/imageLoaderScript') %>
@@ -13,119 +19,126 @@
     <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
     <%- include('./common/nav')%>
 
-    
-
-    
-
     <!-- Render event types -->
     <script
       src="https://kit.fontawesome.com/86c853c564.js"
       crossorigin="anonymous"
     ></script>
-
-    <div class="min-h-screen bg-white flex lg:flex-row max-lg:flex-row items-stretch gap-4 mx-auto max-w-screen-xl text-center px-32 py-16 ">
+    <div class="relative h-screen w-screen">
+      <!-- Designing -->
      
+        <img
+          src="/media/gallery/g7.jpg"
+          class="absolute top-0 left-0 w-6/6 h-6/6"
+          style="
+            background-image: url('/media/gallery/g7.jpg');
+            background-size: cover;
+            background-position: 0 0;
+            clip-path: polygon(0% 0%,100% 0%,100% 100%, 0% 100%);
+          "
+        ></img>
+   
+
+      <div
+        class="min-h-screen justify-center bg-white flex lg:flex-row max-lg:flex-row items-stretch gap-4 mx-auto max-w-screen-2xl text-center px-32 py-16"
+      >
         <%- include('./events/eventTypes', {EventTypes}) %>
         <!-- Event container for dynamic event cards -->
         <div
           id="eventCardsContainer"
-          class="w-1/2 h-full flex flex-col items-start justify-center pr-20 card-container"
+          class="w-1/2 h-full flex flex-col items-start justify-center card-container"
         >
           <!-- Event Cards will be dynamically added here -->
         </div>
-
+      </div>
     </div>
 
-      <script>
-        // Get reference to event cards container
-        const eventCardsContainer = document.getElementById("eventCardsContainer");
+    <script>
+      // Get reference to event cards container
+      const eventCardsContainer = document.getElementById(
+        "eventCardsContainer"
+      );
 
-        // Get reference to event type list items
-        const eventTypeItems = document.querySelectorAll(".eventType");
+      // Get reference to event type list items
+      const eventTypeItems = document.querySelectorAll(".eventType");
 
-        function getCard(event) {
-          return `<div class="card relative flex flex-col md:flex-row rounded-xl shadow-lg px-3 py-2 max-w-5xl mx-auto border border-white bg-white transition-colors duration-300 ease mb-5 hover:shadow-lg hover:bg-white w-[575.5px]">
-            <div class="w-full bg-white flex flex-col space-y-14 px-3">
+      function getCard(event) {
+        return `<div class="card relative flex flex-col md:flex-row rounded-xl shadow-lg px-3 py-2 max-w-5xl mx-auto border hover:border-red-400 border-red-200 bg-transparent backdrop-blur-sm transition-colors duration-300 ease mb-5 hover:shadow-lg  w-[575.5px]">
+            <div class="w-full bg-transparent backdrop-blur-sm flex flex-col space-y-14 px-3">
               <div class="flex justify-between gap-8 items-center">
-                <h3 class="font-black text-gray-800 md:text-3xl text-xl pb-4">${event.name}</h3>
-                <div class="flex flex-col text-gray-600 text-sm space-y-1">
+                <h3 class="font-black text-gray-200 md:text-3xl text-xl pb-4">${
+                  event.name
+                }</h3>
+                <div class="flex flex-col text-gray-100 text-sm space-y-1">
                   <div class="flex items-end">
-                    <i class="fas fa-clock text-gray-500 mr-2"></i>
+                    <i class="fas fa-clock text-gray-100 mr-2"></i>
                     <span>${event.startTime} - ${event.endTime}</span>
                   </div>
                   <div class="flex items-center">
-                    <i class="fas fa-calendar-alt text-gray-500 mr-2"></i>
+                    <i class="fas fa-calendar-alt text-gray-100 mr-2"></i>
                     <span>${event.startDate} - ${event.endDate}</span>
                   </div>
                   <div class="flex items-center">
-                    <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+                    <i class="fas fa-map-marker-alt text-gray-100 mr-2"></i>
                     <span>${event.venue}</span>
                   </div>
                 </div>
               </div>
               <div class="w-full bg-white flex flex-row overflow-x-scroll">
-                ${event.mediaFiles.map((ele) => {
-                  return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`;
-                }).join("")}
+                ${event.mediaFiles
+                  .map((ele) => {
+                    return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`;
+                  })
+                  .join("")}
               </div>
-              <button class="btn-view-more py-2 px-4 bg-gray-400 text-gray-800 font-bold rounded-md transition duration-300 ease-in-out hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50" onclick="toggleDescription(event, 'desc-${event.id}')">Description</button>
-              <div id="desc-${event.id}" class="hidden text-gray-700 mt-2">${event.description}</div>
+              <button class="btn-view-more py-2 px-4 bg-gray-400 text-gray-800 font-bold rounded-md transition duration-300 ease-in-out hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50" onclick="toggleDescription(event, 'desc-${
+                event.id
+              }')">Description</button>
+              <div id="desc-${event.id}" class="hidden text-gray-700 mt-2">${
+          event.description
+        }</div>
             </div>
           </div>`;
+      }
+
+      // Function to toggle the visibility of the description
+      function toggleDescription(event, descId) {
+        const descriptionDiv = document.getElementById(descId);
+        if (descriptionDiv.classList.contains("hidden")) {
+          descriptionDiv.classList.remove("hidden");
+        } else {
+          descriptionDiv.classList.add("hidden");
         }
+      }
 
-        // Function to toggle the visibility of the description
-        function toggleDescription(event, descId) {
-          const descriptionDiv = document.getElementById(descId);
-          if (descriptionDiv.classList.contains("hidden")) {
-            descriptionDiv.classList.remove("hidden");
-          } else {
-            descriptionDiv.classList.add("hidden");
-          }
-        }
+      // Add click event listener to each event type list item
+      eventTypeItems.forEach((item) => {
+        item.addEventListener("click", async () => {
+          const eventType = item.dataset.type;
 
-        // Add click event listener to each event type list item
-        eventTypeItems.forEach((item) => {
-          item.addEventListener("click", async () => {
-            const eventType = item.dataset.type;
+          // TODO: Make it in rest Api format
+          const filteredEventsData = JSON.parse(`<%-unescape(JSON.stringify(Events))%>`);
 
-            // TODO: Make it in rest Api format
-            const filteredEventsData = JSON.parse(
-              '<%-unescape(JSON.stringify(Events))%>'
-            );
+          const filteredEvents = filteredEventsData[eventType];
 
-            const filteredEvents = filteredEventsData[eventType];
+          // Render event cards for the selected event type
+          eventCardsContainer.innerHTML = "";
+          filteredEvents.forEach((event) => {
+            // Create event card HTML
+            const eventCardHTML = getCard(event);
 
-            // Render event cards for the selected event type
-            eventCardsContainer.innerHTML = "";
-            filteredEvents.forEach((event) => {
-              // Create event card HTML
-              const eventCardHTML = getCard(event);
-
-              // Append event card HTML to the event cards container
-              eventCardsContainer.insertAdjacentHTML(
-                "beforeend",
-                eventCardHTML
-              );
-            });
-
-            // Show event cards container
-            eventCardsContainer.classList.remove("hidden");
+            // Append event card HTML to the event cards container
+            eventCardsContainer.insertAdjacentHTML("beforeend", eventCardHTML);
           });
+
+          // Show event cards container
+          eventCardsContainer.classList.remove("hidden");
         });
-      </script>
+      });
+    </script>
 
-      <div class="absolute top-0 left-0 w-1/2 bg-green-300">
+    <div class="absolute top-0 left-0 w-1/2 bg-green-300"></div>
 
-      </div>
- 
-      <div class="absolute top-0 left-0">
-        <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs d="M 10 80 L 10 10 L 80 10 Z" fill="none" stroke="black" />
-
-        </svg>
-      </div>
-    
     <%- include('./common/footer')%>
   </body>
 </html>
