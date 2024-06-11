@@ -8,9 +8,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-      .mybutton{
-        border: 2px solid ;
+      @keyframes bring-down {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(0);
+        }
       }
+      @keyframes bring-up {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100%);
+        }
+      }
+
+      .bring-down {
+        animation: bring-down 0.3s ease-in forwards;
+      }
+      .bring-up{
+        animation: bring-up 0.3s ease-in forwards;
+      } 
     </style>
   </head>
   <body>
@@ -20,13 +40,12 @@
     <%- include('./common/nav')%>
 
     <!-- Render event types -->
-    <script
-      src="https://kit.fontawesome.com/86c853c564.js"
-      crossorigin="anonymous"
-    ></script>
-    <div class="relative h-screen w-screen">
+
+    <div></div>
+   
+    <div class="relative h-fit min-h-svh w-screen overflow-hidden">
       <!-- Designing -->
-     
+      <!--      
         <img
           src="/media/gallery/g7.jpg"
           class="absolute top-0 left-0 w-6/6 h-6/6"
@@ -36,19 +55,23 @@
             background-position: 0 0;
             clip-path: polygon(0% 0%,100% 0%,100% 100%, 0% 100%);
           "
-        ></img>
-   
+        ></img> -->
 
       <div
-        class="min-h-screen justify-center bg-white flex lg:flex-row max-lg:flex-row items-stretch gap-4 mx-auto max-w-screen-2xl text-center px-32 py-16"
+        class="min-h-screen justify-center bg-white flex lg:flex-row max-lg:flex-row items-stretch lg:gap-32 md:gap-16 max-md:gap-4 mx-auto max-w-screen-2xl text-center px-32 py-16"
       >
         <%- include('./events/eventTypes', {EventTypes}) %>
         <!-- Event container for dynamic event cards -->
-        <div
-          id="eventCardsContainer"
-          class="w-1/2 h-full flex flex-col items-start justify-center card-container"
-        >
-          <!-- Event Cards will be dynamically added here -->
+        <div class="w-1/2 h-full items-start justify-center">
+          <h2 id="containerHeading" class="text-3xl font-medium py-5">
+            Conference Heading
+          </h2>
+          <div
+            id="eventCardsContainer"
+            class="w-1/2 h-full flex flex-col items-start justify-center card-container"
+          >
+            <!-- Event Cards will be dynamically added here -->
+          </div>
         </div>
       </div>
     </div>
@@ -63,61 +86,87 @@
       const eventTypeItems = document.querySelectorAll(".eventType");
 
       function getCard(event) {
-        return `<div class="card relative flex flex-col md:flex-row rounded-xl shadow-lg px-3 py-2 max-w-5xl mx-auto border hover:border-red-400 border-red-200 bg-transparent backdrop-blur-sm transition-colors duration-300 ease mb-5 hover:shadow-lg  w-[575.5px]">
-            <div class="w-full bg-transparent backdrop-blur-sm flex flex-col space-y-14 px-3">
-              <div class="flex justify-between gap-8 items-center">
-                <h3 class="font-black text-gray-200 md:text-3xl text-xl pb-4">${
+        return `<div class="card relative flex flex-col md:flex-row rounded-xl shadow-lg  min-w-[575.5px] mx-auto border hover:border-red-400  bg-transparent backdrop-blur-sm transition-colors duration-300 ease mb-5 hover:shadow-lg  ">
+            <div class="w-full bg-transparent backdrop-blur-sm flex flex-col space-y-4 rounded-xl">
+              <div class="flex justify-between gap-8 items-center relative px-6 pt-3">
+                <h3 class="font-black text-gray-700 md:text-3xl text-xl pb-4">${
                   event.name
                 }</h3>
-                <div class="flex flex-col text-gray-100 text-sm space-y-1">
+                <div class="flex flex-col text-gray-700 text-sm space-y-1">
                   <div class="flex items-end">
-                    <i class="fas fa-clock text-gray-100 mr-2"></i>
+                    <i class="fas fa-clock text-gray-700 mr-2"></i>
                     <span>${event.startTime} - ${event.endTime}</span>
                   </div>
                   <div class="flex items-center">
-                    <i class="fas fa-calendar-alt text-gray-100 mr-2"></i>
+                    <i class="fas fa-calendar-alt text-gray-700 mr-2"></i>
                     <span>${event.startDate} - ${event.endDate}</span>
                   </div>
                   <div class="flex items-center">
-                    <i class="fas fa-map-marker-alt text-gray-100 mr-2"></i>
+                    <i class="fas fa-map-marker-alt text-gray-700 mr-2"></i>
                     <span>${event.venue}</span>
                   </div>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="btn-view-more h-6 w-8 text-gray-800  transition duration-300 ease-in-out  rounded-sm
+                  text-black absolute right-0 bottom-0 transition transition-all
+                  mr-3" onclick="toggleDescription(event, 'desc-${
+                    event.id
+                  }')"    >
+	<path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
+
                 </div>
               </div>
-              <div class="w-full bg-white flex flex-row overflow-x-scroll">
+              <div class="relative w-full bg-gray-100 flex flex-row h-40 overflow-hidden p-4 box-border gap-4 rounded-b-xl">
                 ${event.mediaFiles
                   .map((ele) => {
-                    return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-32" />`;
+                    return `<img src="${ele}" alt="event.title" class="rounded-xl w-32 h-full" />`;
                   })
                   .join("")}
-              </div>
-              <button class="btn-view-more py-2 px-4 bg-gray-400 text-gray-800 font-bold rounded-md transition duration-300 ease-in-out hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50" onclick="toggleDescription(event, 'desc-${
-                event.id
-              }')">Description</button>
-              <div id="desc-${event.id}" class="hidden text-gray-700 mt-2">${
+
+                   <div id="desc-${
+                     event.id
+                   }" class="absolute inset-0 bg-black bg-opacity-75 text-white p-4 overflow-hidden -translate-y-full toggle-hidden" >${
           event.description
         }</div>
+              </div>
+            
+             
             </div>
           </div>`;
       }
 
       // Function to toggle the visibility of the description
-      function toggleDescription(event, descId) {
+    function  toggleDescription(event, descId) {
+    
         const descriptionDiv = document.getElementById(descId);
-        if (descriptionDiv.classList.contains("hidden")) {
-          descriptionDiv.classList.remove("hidden");
+        if (descriptionDiv.classList.contains("toggle-hidden")) {
+          descriptionDiv.classList.remove("toggle-hidden");
+          descriptionDiv.classList.remove("bring-up")
+          descriptionDiv.classList.add("bring-down")
+    
+        event.target.innerHTML = `<path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>`
+
         } else {
-          descriptionDiv.classList.add("hidden");
+
+          event.target.innerHTML = `	<path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/>`
+          descriptionDiv.classList.remove("bring-down")
+          descriptionDiv.classList.add("bring-up");
+          descriptionDiv.classList.add("toggle-hidden");
+      
+          
+          
         }
       }
-
+      const containerHeader = document.getElementById("containerHeading");
       // Add click event listener to each event type list item
       eventTypeItems.forEach((item) => {
         item.addEventListener("click", async () => {
           const eventType = item.dataset.type;
+          containerHeader.innerHTML = item.dataset.type;
 
           // TODO: Make it in rest Api format
-          const filteredEventsData = JSON.parse(`<%-unescape(JSON.stringify(Events))%>`);
+          const filteredEventsData = JSON.parse(
+            `<%-unescape(JSON.stringify(Events))%>`
+          );
 
           const filteredEvents = filteredEventsData[eventType];
 

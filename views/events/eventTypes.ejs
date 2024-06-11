@@ -3,7 +3,7 @@
     <h2 class="font-medium py-5 text-3xl">Event Categories</h2>
     <% EventTypes.forEach(eventType => { %>
     <button
-      class="mb-4 w-full px-6 py-3 text-gray-200 font-semibold rounded-lg shadow-md  hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-200 ease-in-out transform hover:scale-105 hover:border-2 border-2 border-red-200 hover:border-red-400 hover:bg-red-800 eventType backdrop-blur-sm"
+      class="mb-4 w-full px-6 py-3 text-gray-700 font-semibold rounded-lg shadow-md  hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50 transition duration-200 ease-in-out transform hover:scale-105 hover:border-2  hover:border-red-400 hover:bg-red-800 eventType backdrop-blur-sm hover:text-gray-200 md trans"
       data-type="<%= eventType.name %>"
     >
       <%= eventType.name %>
@@ -11,3 +11,4 @@
     <% }); %>
   </ul>
 </div>
+
