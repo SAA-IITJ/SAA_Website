@@ -37,19 +37,3 @@
     </button>
 </div>
 
-  
-  <script >
-    document.addEventListener("DOMContentLoaded", function() {
-      const carousel = document.getElementById("carousel");
-      let counter = 0;
-  
-      setInterval(() => {
-        counter++;
-        if (counter === 3) {
-          counter = 0;
-        }
-        carousel.style.transform = `translateX(-${counter * 100}%)`;
-      }, 2000);
-    });
-  </script>
-  
