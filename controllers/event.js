@@ -2,42 +2,25 @@ const CONSTANTS = require("../utils/constants");
 const { EventTypes } = require("../models/events/EventTypes");
 const { Events } = require("../models/events/Events");
 const utils = require("../utils/utils");
-
+const path = require("path");
+const fs = require("fs");
 module.exports = {
   eventsView: async (req, res, next) => {
-    res.render("events", {
-      [CONSTANTS.HOME_PAGE_RENDER_INPUTS.NavLinks]:
-        CONSTANTS.HOME_PAGE_NAVLINKS,
-      [CONSTANTS.EVENTS_PAGE_RENDER_INPUTS.EventTypes]:
-        await EventTypes.findAll({
-          attributes: {
-            exclude: ["createdAt", "updatedAt"],
-          },
-        }),
-      [CONSTANTS.EVENTS_PAGE_RENDER_INPUTS.Events]: await Events.findAll({
-        attributes: {
-          exclude: ["createdAt", "updatedAt"],
-        },
-      }).then(async (data) => {
+    
+    const fileName = path.join(
+      __dirname,
+      "../public/dynamicPages/events/index.html"
+    );
 
-        const groupedEventsMap = {};
-        for (const event of data) {
-          const eventTypeObj = await EventTypes.findByPk(event.eventTypeId);
-          const eventTypeName = await eventTypeObj.getDataValue("name");
-          const mediaFiles = utils.getFilesArrayInAFolder(event.mediaDirectory);
-          if (!groupedEventsMap[eventTypeName]) {
-            groupedEventsMap[eventTypeName] = [];
-          }
-          groupedEventsMap[eventTypeName].push({
-            ...event.dataValues,
-            eventType: eventTypeName,
-            mediaFiles,
-          });
-        }
- 
-        return groupedEventsMap;
-      }),
+    console.log(fileName);
+    fs.readFile(fileName, (err, data) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("Internal Server Error");
+      }
+
+      res.setHeader("Content-Type", "text/html");
+      res.status(200).send(data);
     });
-    next();
   },
 };
