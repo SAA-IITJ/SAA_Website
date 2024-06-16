@@ -18,7 +18,7 @@
     </script>
     <link rel="stylesheet" href="/stylesheets/visitIITJ.css" />
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+
 
     <style>
         @keyframes circle {
@@ -36,9 +36,6 @@
     <%- include('./common/nav')%>
 
     <!-- VisitIITJ -->
-    <div class="delay-[300ms] duration-[600ms] taos:translate-y-[200px] taos:opacity-0" data-taos-offset="300">
-        <div class="duration-[1000ms] [animation-iteration-count:infinite] taos:opacity-0">
-        
         <section class="text-black body-font dark:bg-red-100">
             <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
                 <div class="mt-4 md:mt-0">
@@ -217,11 +214,10 @@
                 </div>  
             </div>
           </section>
-        </div>
-    </div>
 
 
 
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
     <%- include('./common/footer')%>
   </body>
 </html>

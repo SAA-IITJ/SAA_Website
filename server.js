@@ -4,6 +4,7 @@ const db = require("./config/db");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const logger = require("./utils/logger");
+const cors = require('cors')
 
 require("dotenv").config({ path: ".env.sample" });
 
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors())
 
 // using path.join as node may be called from another directory
 app.use(express.static(path.join(__dirname, "public")));
