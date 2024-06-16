@@ -8,7 +8,7 @@ const logger = require("./utils/logger");
 require("dotenv").config({ path: ".env.sample" });
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
