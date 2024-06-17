@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "create:css": "node generate-css.js",
-    "seed": "node ./seed/init.js"
+    "seed": "node ./seed/init.js",
+    "fetchData":"node ./fetchData.js"
   },
   "keywords": [
     "iitj",

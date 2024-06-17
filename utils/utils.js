@@ -27,7 +27,6 @@ const getFilesArrayInAFolder = (subDirPath) => {
     // Return full paths of the files
     
     const result =  files.map((file) => path.join(subDirPath, file));
-    logger(result, "success")
     return result
   } catch (error) {
     // Handle error, e.g., directory not found
