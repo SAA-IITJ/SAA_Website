@@ -65,6 +65,8 @@ async function main() {
   }
 }
 
-main()
-  .then(() => console.log("Data fetched successfully"))
-  .catch((err) => console.log("error fetching data"));
+if (!fs.existsSync(path.join(__dirname, "public"))) {
+  main()
+    .then(() => console.log("Data fetched successfully"))
+    .catch((err) => console.log("error fetching data"));
+}
