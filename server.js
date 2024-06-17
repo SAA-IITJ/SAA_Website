@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("./utils/logger");
 
 
-require("dotenv").config({ path: ".env.sample" });
+require("dotenv").config({ path: ".env" });
 
 const app = express();
 const PORT = process.env.PORT || 8080;
