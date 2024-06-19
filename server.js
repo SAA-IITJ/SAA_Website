@@ -4,7 +4,6 @@ const db = require("./config/db");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const logger = require("./utils/logger");
-const proxy = require("http-proxy-middleware");
 const proxyToWebpack = require("./middlewares/proxyToWebpack");
 
 require("dotenv").config({ path: ".env" });
