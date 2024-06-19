@@ -18,6 +18,7 @@ const templates = ["home", "team", "events","facultyAdvisor","givingBack","visit
 templates.forEach((template) => {
   const mainTemplatePath = path.join(templatesDir, `${template}.ejs`);
   const partialsPath = path.join(templatesDir, template, "**/*.ejs");
+  console.log(partialsPath);
   const outputCssPath = path.join(outputDir, `${template}.css`);
 
   // Create temporary Tailwind configuration file
