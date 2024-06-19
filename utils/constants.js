@@ -56,6 +56,8 @@ const EVENTS_PAGE_RENDER_INPUTS = {
   EventTypes: "EventTypes",
 };
 
+const DYNAMIC_PAGES = ['events']
+
 module.exports = {
   HOME_PAGE_RENDER_INPUTS,
   HOME_PAGE_NAVLINKS,
@@ -64,4 +66,5 @@ module.exports = {
   TEAM_PAGE_TEAM_TYPES,
   GALLERY_PAGE_RENDER_INPUTS,
   EVENTS_PAGE_RENDER_INPUTS,
+  DYNAMIC_PAGES
 };

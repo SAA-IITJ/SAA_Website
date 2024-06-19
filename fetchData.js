@@ -4,7 +4,7 @@ const path = require("path");
 require("dotenv").config({ path: ".env" });
 // Replace with your GitHub repo URL
 const repoUrl = process.env.DATA_REPO_URL;
-console.log(repoUrl);
+
 const localRepoName = process.env.DATA_REPO_NAME; // The name of the repo folder created after cloning
 const currentFolder = __dirname;
 

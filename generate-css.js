@@ -16,8 +16,8 @@ if (!fs.existsSync(outputDir)) {
 const templates = ["home", "team", "events","facultyAdvisor","givingBack","visitIITJ"];
 
 templates.forEach((template) => {
-  const mainTemplatePath = path.join(templatesDir, `${template}.ejs`);
-  const partialsPath = path.join(templatesDir, template, "**/*.ejs");
+  const mainTemplatePath = path.join(templatesDir, `${template}.{ejs,jsx,js}`);
+  const partialsPath = path.join(templatesDir, template, "**/*.{ejs,jsx,js}");
   const outputCssPath = path.join(outputDir, `${template}.css`);
 
   // Create temporary Tailwind configuration file
@@ -53,7 +53,7 @@ templates.forEach((template) => {
 
   // Execute PostCSS to generate the CSS file
   exec(
-    `npx tailwindcss build ${inputCss} -o ${outputCssPath} --config ${tempConfigPath} --minify`,
+    `npx tailwindcss build ${inputCss} -o ${outputCssPath} --config ${tempConfigPath} --minify ${process.argv.slice(2).join(" ")}`,
     (err, stdout, stderr) => {
       // Delete the temporary Tailwind configuration file
       fs.unlinkSync(tempConfigPath);

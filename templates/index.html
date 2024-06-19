@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+
+    <% function capitalizeFirstLetter(string) {return string.charAt(0).toUpperCase() + string.slice(1); } %>
+    <title><%= capitalizeFirstLetter( htmlWebpackPlugin.options.title )%></title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="/dynamicPages/events/bundle.js"></script>
+    <link rel="stylesheet" href="/stylesheets/<%= htmlWebpackPlugin.options.title %>.css" />
+    
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
