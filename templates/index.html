@@ -11,7 +11,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script defer src="/dynamicPages/events/bundle.js"></script>
     <link rel="stylesheet" href="/stylesheets/<%= htmlWebpackPlugin.options.title %>.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <style>
+      .title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 30px;
+      color: black;
+      width: 0;
+      overflow: hidden;
+      white-space: no-wrap;
+      display:block;
+      border-right: 3px solid black;
+      animation: typewriter 5s steps(7) infinite, blinking-cursor 0.8s infinite;
+      animation-fill-mode: forwards
+    }
     
+    @keyframes typewriter {
+      0% { width:0 }
+      25% { width: 70% }
+      48% { width: 100% }
+      50% { width: 100% }
+      55% { width: 100% }
+      75% { width: 70%; }
+      85% { width: 30%; }
+      100% { width: 0; }
+    }
+    
+    @keyframes blinking-cursor {
+      from { border-color: transparent }
+      to { border-color: red }
+    }
+  
+    .nav-link {
+      font-weight: 400;
+      font-size: 16px;
+      text-decoration: black;
+      color: black;
+      padding: 3px 0px;
+      margin: 0px 3px;
+      display: inline-block;
+      position: relative;
+      opacity: 1;
+    }
+  
+    .nav-link::before {
+      transition: 300ms;
+      height: 3px;
+      content: "";
+      position: absolute;
+      background-color: red;
+    }
+  
+    .nav-link-ltr::before {
+      width: 0%;
+      bottom: 1px;
+    }
+  
+    .nav-link-ltr:hover::before {
+      width: 100%;
+    }
+    
+  </style>
   </head>
   <body>
     <div id="root"></div>
