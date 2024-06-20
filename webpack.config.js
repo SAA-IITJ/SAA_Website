@@ -85,5 +85,5 @@ module.exports = {
     // Add new plugin for each chunk
     ...getHtmlWebpackPlugins(),
   ],
-  mode: "development",
+  mode: process.env.NODE_ENV,
 };

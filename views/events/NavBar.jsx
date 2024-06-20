@@ -12,7 +12,7 @@ const Navbar = () => {
         const data = await response.json();
 
         setNavLinks(data["NavLinks"]);
-        console.log(data["NavLinks"]);
+     
       } catch (error) {
         setError(error.message);
       }

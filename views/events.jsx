@@ -5,11 +5,11 @@ import Footer from "./events/Footer";
 import Navbar from "./events/NavBar";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ 
     <>
       <Navbar />
       <Events />
       <Footer />
     </>
-  </React.StrictMode>
+
 );
