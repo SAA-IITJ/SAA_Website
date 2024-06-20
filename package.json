@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "concurrently \"nodemon server.js\" \"node generate-css.js --watch\" \"webpack serve\"",
-    "build": "node ./fetchData.js && node generate-css.js && webpack && node  server.js",
+    "build":"node generate-css.js && webpack",
+    "deploy": "node ./fetchData.js && node  server.js",
     "seed": "node ./seed/init.js",
     "fetchData": "node ./fetchData.js"
   },
